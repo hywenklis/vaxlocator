@@ -1,3 +1,3 @@
 package com.opensource.vaxlocator.integrations.opencagedata.dtos;
 
-public record GeometryDto(double lat, double lng) { }
+public record GeometryDto(Double lat, Double lng) { }

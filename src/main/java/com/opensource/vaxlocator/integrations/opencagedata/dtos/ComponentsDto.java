@@ -5,7 +5,6 @@ public record ComponentsDto(String city,
                             String postcode,
                             String region,
                             String state,
-                            String suburb
-) {
+                            String suburb) {
 
 }
