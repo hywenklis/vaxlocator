@@ -38,7 +38,3 @@ management:
     web:
       exposure:
         include: "*"
-
-integration:
-  opencagedata:
-    uri: https://api.opencagedata.com
