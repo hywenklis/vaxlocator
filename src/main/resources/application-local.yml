@@ -1,0 +1,44 @@
+server:
+  forward-headers-strategy: framework
+
+  error:
+    include-message: always
+
+  servlet:
+    context-path: /api
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: true
+#    generate-ddl: false
+#    ddl-auto: none
+#    open-in-view: true
+#
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/openup-vaxlocatordb
+#    username: vaxlocator
+#    password: vaxlocator
+
+#  flyway:
+#    enabled: true
+#    url: ${spring.datasource.url}
+#    user: ${spring.datasource.username}
+#    password: ${spring.datasource.password}
+#    baseline-on-migrate: true
+
+springdoc.swagger-ui.path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+integration:
+  opencagedata:
+    uri: https://api.opencagedata.com
