@@ -1,9 +1,11 @@
 package com.opensource.vaxlocator.web.controllers.admin;
 
+import com.opensource.vaxlocator.domains.dtos.AddressDto;
 import com.opensource.vaxlocator.integrations.opencagedata.dtos.demas.EstablishmentsInfoDto;
 import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.OpenCageDataDto;
 import com.opensource.vaxlocator.integrations.opencagedata.service.DemasService;
 import com.opensource.vaxlocator.integrations.opencagedata.service.OpenCageDataService;
+import com.opensource.vaxlocator.service.AddressService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,6 +25,8 @@ public class AdminController {
 
   private final OpenCageDataService openCageDataService;
   private final DemasService demasService;
+
+  private final AddressService addressService;
 
   @GetMapping("/open/cage/data")
   @Operation(
@@ -60,5 +64,18 @@ public class AdminController {
   ) {
     return ResponseEntity.status(HttpStatus.OK)
         .body(demasService.getEstablishments(unityTypeCode, ufCode, limit, offset));
+  }
+
+  @GetMapping("/address")
+  @Operation(
+      summary = "Find address information",
+      description = "Retrieves address information"
+  )
+  public ResponseEntity<AddressDto> findAddress(
+      @Parameter(description = "Postal code for address lookup", required = true)
+      @RequestParam String postalCode
+  ) {
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(addressService.retrieveAddressBy(postalCode));
   }
 }

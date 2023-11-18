@@ -11,18 +11,18 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-#  jpa:
-#    database-platform: org.hibernate.dialect.PostgreSQLDialect
-#    show-sql: true
-#    generate-ddl: false
-#    ddl-auto: none
-#    open-in-view: true
-#
-#  datasource:
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/openup-vaxlocatordb
-#    username: vaxlocator
-#    password: vaxlocator
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    generate-ddl: true
+    ddl-auto: update
+    open-in-view: true
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/openup-vaxlocatordb
+    username: vaxlocator
+    password: vaxlocator
 
 #  flyway:
 #    enabled: true

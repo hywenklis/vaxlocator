@@ -22,7 +22,7 @@ public class AddressEntity {
 
   private String city;
   private String municipality;
-  private String postcode;
+  private String postalCode;
   private String region;
   private String state;
   private String suburb;
