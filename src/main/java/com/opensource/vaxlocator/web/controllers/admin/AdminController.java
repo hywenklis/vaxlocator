@@ -1,6 +1,8 @@
 package com.opensource.vaxlocator.web.controllers.admin;
 
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.OpenCageDataDto;
+import com.opensource.vaxlocator.integrations.opencagedata.dtos.demas.EstablishmentsInfoDto;
+import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.OpenCageDataDto;
+import com.opensource.vaxlocator.integrations.opencagedata.service.DemasService;
 import com.opensource.vaxlocator.integrations.opencagedata.service.OpenCageDataService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +20,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
 
   private final OpenCageDataService openCageDataService;
+  private final DemasService demasService;
 
-  @GetMapping
-  public ResponseEntity<OpenCageDataDto> findInformation(
+  @GetMapping("/open/cage/data")
+  public ResponseEntity<OpenCageDataDto> findAddressInformation(
       @RequestParam() String apiKey,
       @RequestParam("postalCode") String query
   ) {
     return ResponseEntity.status(HttpStatus.OK)
         .body(openCageDataService.getAddressInformation(apiKey, query));
+  }
+
+  @GetMapping("/demas/gov")
+  public ResponseEntity<EstablishmentsInfoDto> findEstablishmentsInformation(
+      @RequestParam Integer unityTypeCode,
+      @RequestParam Integer ufCode,
+      @RequestParam Integer limit,
+      @RequestParam Integer offset
+  ) {
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(demasService.getEstablishments(unityTypeCode, ufCode, limit, offset));
   }
 }

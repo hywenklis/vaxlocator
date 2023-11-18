@@ -1,13 +1,13 @@
 package com.opensource.vaxlocator.integrations.opencagedata.mappers;
 
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.ComponentsDto;
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.GeometryDto;
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.OpenCageDataDto;
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.ResultDto;
-import com.opensource.vaxlocator.integrations.opencagedata.response.ComponentsResponse;
-import com.opensource.vaxlocator.integrations.opencagedata.response.GeometryResponse;
-import com.opensource.vaxlocator.integrations.opencagedata.response.OpenCageDataResponse;
-import com.opensource.vaxlocator.integrations.opencagedata.response.ResultResponse;
+import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.ComponentsDto;
+import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.GeometryDto;
+import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.OpenCageDataDto;
+import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.ResultDto;
+import com.opensource.vaxlocator.integrations.opencagedata.response.opencagedata.ComponentsResponse;
+import com.opensource.vaxlocator.integrations.opencagedata.response.opencagedata.GeometryResponse;
+import com.opensource.vaxlocator.integrations.opencagedata.response.opencagedata.OpenCageDataResponse;
+import com.opensource.vaxlocator.integrations.opencagedata.response.opencagedata.ResultResponse;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -1,4 +1,4 @@
-package com.opensource.vaxlocator.integrations.opencagedata.dtos;
+package com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata;
 
 import java.util.List;
 

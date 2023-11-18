@@ -1,6 +1,6 @@
 package com.opensource.vaxlocator.integrations.opencagedata.web;
 
-import com.opensource.vaxlocator.integrations.opencagedata.response.OpenCageDataResponse;
+import com.opensource.vaxlocator.integrations.opencagedata.response.opencagedata.OpenCageDataResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
