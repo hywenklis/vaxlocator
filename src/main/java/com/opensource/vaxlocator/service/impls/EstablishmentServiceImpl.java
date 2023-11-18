@@ -35,20 +35,16 @@ public class EstablishmentServiceImpl implements EstablishmentService {
       Double latitude = coordinate.latitude();
       Double longitude = coordinate.longitude();
 
-      // Verificar se os estabelecimentos já existem no banco de dados
       Optional<List<EstablishmentDomainDto>> existingEstablishments =
           establishmentRepository.findByLatitudeAndLongitude(latitude, longitude);
 
       if (existingEstablishments.isPresent()) {
-        // Se existir, adicionar os estabelecimentos do banco à lista final
         allEstablishments.addAll(existingEstablishments.get());
         log.info("Establishments found in the database. Retrieving from database.");
       } else {
-        // Se não existir, chamar a API e salvar no banco
         log.info(
             "Establishments not found in the database. Retrieving from API and saving to database.");
-        List<EstablishmentDomainDto> establishments = retrieveAndSaveEstablishments(latitude,
-            longitude);
+        List<EstablishmentDomainDto> establishments = retrieveAndSaveEstablishments();
         allEstablishments.addAll(establishments);
       }
     }
@@ -56,10 +52,7 @@ public class EstablishmentServiceImpl implements EstablishmentService {
     return allEstablishments;
   }
 
-  private List<EstablishmentDomainDto> retrieveAndSaveEstablishments(
-      final Double latitude,
-      final Double longitude
-  ) {
+  private List<EstablishmentDomainDto> retrieveAndSaveEstablishments() {
 
     List<EstablishmentDomainDto> allEstablishments = new ArrayList<>();
 
@@ -68,18 +61,14 @@ public class EstablishmentServiceImpl implements EstablishmentService {
     int offset = 0;
     int limit = 20;
 
-    // Continuar fazendo chamadas até não haver mais estabelecimentos
     while (true) {
-      // Chamar a API para obter os estabelecimentos
       EstablishmentsInfoDto establishmentsInfo =
           demasService.getEstablishments(unityTypeCode, ufCode, limit, offset);
 
       if (establishmentsInfo.establishments().isEmpty()) {
-        // Se não há mais estabelecimentos, interromper o loop
         break;
       }
 
-      // Salvar os estabelecimentos no banco
       List<EstablishmentDomainDto> establishmentDomainDtos =
           establishmentMapper.mapDtosToDomains(establishmentsInfo.establishments());
 
@@ -94,7 +83,6 @@ public class EstablishmentServiceImpl implements EstablishmentService {
 
       allEstablishments.addAll(convertEstablishmentsInDto);
 
-      // Incrementar o offset para a próxima chamada
       offset += limit;
     }
 
