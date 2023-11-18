@@ -24,8 +24,8 @@ public class EstablishmentResponse {
   private @JsonProperty("numero_estabelecimento") String number;
   private @JsonProperty("bairro_estabelecimento") String district;
   private @JsonProperty("numero_telefone_estabelecimento") String phoneNumber;
-  private @JsonProperty("latitude_estabelecimento_decimo_grau") Number latitude;
-  private @JsonProperty("longitude_estabelecimento_decimo_grau") Number longitude;
+  private @JsonProperty("latitude_estabelecimento_decimo_grau") Double latitude;
+  private @JsonProperty("longitude_estabelecimento_decimo_grau") Double longitude;
   private @JsonProperty("endereco_email_estabelecimento") String email;
   private @JsonProperty("numero_cnpj") String numberCnpj;
   private @JsonProperty("codigo_identificador_turno_atendimento") String serviceTurnIdentifierCode;
