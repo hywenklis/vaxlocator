@@ -1,7 +1,7 @@
 package com.opensource.vaxlocator.service;
 
-import com.opensource.vaxlocator.domains.dtos.AddressDto;
+import com.opensource.vaxlocator.domains.dtos.AddressDomainDto;
 
 public interface AddressService {
-  AddressDto retrieveAddressBy(String postalCode);
+  AddressDomainDto retrieveAddressBy(String postalCode);
 }

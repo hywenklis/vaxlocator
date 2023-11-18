@@ -1,18 +1,24 @@
 package com.opensource.vaxlocator.web.controllers.admin;
 
-import com.opensource.vaxlocator.domains.dtos.AddressDto;
+import com.opensource.vaxlocator.domains.dtos.AddressDomainDto;
+import com.opensource.vaxlocator.domains.dtos.CoordinateDomainDto;
+import com.opensource.vaxlocator.domains.dtos.EstablishmentDomainDto;
 import com.opensource.vaxlocator.integrations.opencagedata.dtos.demas.EstablishmentsInfoDto;
 import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.OpenCageDataDto;
 import com.opensource.vaxlocator.integrations.opencagedata.service.DemasService;
 import com.opensource.vaxlocator.integrations.opencagedata.service.OpenCageDataService;
 import com.opensource.vaxlocator.service.AddressService;
+import com.opensource.vaxlocator.service.EstablishmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +33,7 @@ public class AdminController {
   private final DemasService demasService;
 
   private final AddressService addressService;
+  private final EstablishmentService establishmentService;
 
   @GetMapping("/open/cage/data")
   @Operation(
@@ -71,11 +78,23 @@ public class AdminController {
       summary = "Find address information in database",
       description = "Retrieves address information in database"
   )
-  public ResponseEntity<AddressDto> findAddress(
+  public ResponseEntity<AddressDomainDto> findAddress(
       @Parameter(description = "Example postal code for address lookup (format: 00000-000)", required = true)
       @RequestParam final String postalCode
   ) {
     return ResponseEntity.status(HttpStatus.OK)
         .body(addressService.retrieveAddressBy(postalCode));
+  }
+
+  @PostMapping("/establishments")
+  @Operation(
+      summary = "Find all establishment information in database",
+      description = "Retrieves establishment information in database"
+  )
+  public ResponseEntity<List<EstablishmentDomainDto>> findAddress(
+      @RequestBody List<CoordinateDomainDto> coordinates
+  ) {
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(establishmentService.retrieveEstablishmentsBy(coordinates));
   }
 }

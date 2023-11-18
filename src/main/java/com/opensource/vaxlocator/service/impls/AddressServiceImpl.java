@@ -1,6 +1,6 @@
 package com.opensource.vaxlocator.service.impls;
 
-import com.opensource.vaxlocator.domains.dtos.AddressDto;
+import com.opensource.vaxlocator.domains.dtos.AddressDomainDto;
 import com.opensource.vaxlocator.domains.entities.AddressEntity;
 import com.opensource.vaxlocator.domains.mappers.AddressMapper;
 import com.opensource.vaxlocator.domains.repositories.AddressRepository;
@@ -21,7 +21,7 @@ public class AddressServiceImpl implements AddressService {
   private final AddressRepository addressRepository;
 
   @Override
-  public AddressDto retrieveAddressBy(final String postalCode) {
+  public AddressDomainDto retrieveAddressBy(final String postalCode) {
     final Optional<AddressEntity> existingAddress = addressRepository.findByPostalCode(postalCode);
 
     if (existingAddress.isPresent()) {
@@ -35,7 +35,7 @@ public class AddressServiceImpl implements AddressService {
     }
   }
 
-  private AddressDto save(final AddressDto addressDto) {
+  private AddressDomainDto save(final AddressDomainDto addressDto) {
     final AddressEntity addressEntity = addressMapper.mapToEntity(addressDto);
     final AddressEntity savedAddress = addressRepository.save(addressEntity);
     return addressMapper.mapToDto(savedAddress);

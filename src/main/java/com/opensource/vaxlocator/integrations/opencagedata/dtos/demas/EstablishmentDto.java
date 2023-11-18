@@ -1,9 +1,5 @@
 package com.opensource.vaxlocator.integrations.opencagedata.dtos.demas;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-@JsonInclude(Include.NON_NULL)
 public record EstablishmentDto(Integer establishmentCode,
                                String cnpj,
                                String companyName,
@@ -18,8 +14,8 @@ public record EstablishmentDto(Integer establishmentCode,
                                String number,
                                String district,
                                String phoneNumber,
-                               Number latitude,
-                               Number longitude,
+                               Double latitude,
+                               Double longitude,
                                String email,
                                String numberCnpj,
                                String serviceTurnIdentifierCode,

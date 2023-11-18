@@ -1,6 +1,6 @@
 package com.opensource.vaxlocator.domains.mappers;
 
-import com.opensource.vaxlocator.domains.dtos.AddressDto;
+import com.opensource.vaxlocator.domains.dtos.AddressDomainDto;
 import com.opensource.vaxlocator.domains.entities.AddressEntity;
 import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.OpenCageDataDto;
 import org.mapstruct.Mapper;
@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface AddressMapper {
 
-  AddressDto mapToDto(AddressEntity addressEntity);
+  AddressDomainDto mapToDto(AddressEntity addressEntity);
 
   @Mapping(target = "postalCode", expression = "java(openCageDataDto.results().get(0).components().postcode())")
   @Mapping(target = "city", expression = "java(openCageDataDto.results().get(0).components().city())")
@@ -19,8 +19,8 @@ public interface AddressMapper {
   @Mapping(target = "suburb", expression = "java(openCageDataDto.results().get(0).components().suburb())")
   @Mapping(target = "lat", expression = "java(openCageDataDto.results().get(0).geometry().lat())")
   @Mapping(target = "lng", expression = "java(openCageDataDto.results().get(0).geometry().lng())")
-  AddressDto mapToDto(OpenCageDataDto openCageDataDto);
+  AddressDomainDto mapToDto(OpenCageDataDto openCageDataDto);
 
   @Mapping(target = "id", ignore = true)
-  AddressEntity mapToEntity(AddressDto addressDto);
+  AddressEntity mapToEntity(AddressDomainDto addressDto);
 }
