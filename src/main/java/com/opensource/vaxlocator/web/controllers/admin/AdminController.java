@@ -35,10 +35,10 @@ public class AdminController {
   )
   public ResponseEntity<OpenCageDataDto> findAddressInformation(
       @Parameter(description = "API key for authentication", required = true)
-      @RequestParam() String apiKey,
+      @RequestParam() final String apiKey,
 
       @Parameter(description = "Postal code for address lookup", required = true)
-      @RequestParam("postalCode") String query
+      @RequestParam("postalCode") final String query
   ) {
     return ResponseEntity.status(HttpStatus.OK)
         .body(openCageDataService.getAddressInformation(apiKey, query));
@@ -51,16 +51,16 @@ public class AdminController {
   )
   public ResponseEntity<EstablishmentsInfoDto> findEstablishmentsInformation(
       @Parameter(description = "Code representing the type of unity", required = true)
-      @RequestParam Integer unityTypeCode,
+      @RequestParam final Integer unityTypeCode,
 
       @Parameter(description = "Code representing the state", required = true)
-      @RequestParam Integer ufCode,
+      @RequestParam final Integer ufCode,
 
       @Parameter(description = "Maximum number of results to retrieve = 20", required = true)
-      @RequestParam Integer limit,
+      @RequestParam final Integer limit,
 
       @Parameter(description = "Offset for paginating through results", required = true)
-      @RequestParam Integer offset
+      @RequestParam final Integer offset
   ) {
     return ResponseEntity.status(HttpStatus.OK)
         .body(demasService.getEstablishments(unityTypeCode, ufCode, limit, offset));
@@ -68,12 +68,12 @@ public class AdminController {
 
   @GetMapping("/address")
   @Operation(
-      summary = "Find address information",
-      description = "Retrieves address information"
+      summary = "Find address information in database",
+      description = "Retrieves address information in database"
   )
   public ResponseEntity<AddressDto> findAddress(
-      @Parameter(description = "Postal code for address lookup", required = true)
-      @RequestParam String postalCode
+      @Parameter(description = "Example postal code for address lookup (format: 00000-000)", required = true)
+      @RequestParam final String postalCode
   ) {
     return ResponseEntity.status(HttpStatus.OK)
         .body(addressService.retrieveAddressBy(postalCode));
