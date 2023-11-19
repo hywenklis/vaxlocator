@@ -7,18 +7,17 @@ import com.opensource.vaxlocator.domains.dtos.EstablishmentsInfoDomainDto;
 import com.opensource.vaxlocator.domains.mappers.CoordinateMapper;
 import com.opensource.vaxlocator.service.AddressService;
 import com.opensource.vaxlocator.service.EstablishmentService;
+import com.opensource.vaxlocator.service.VaccinationPointsService;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class VaccinationPointsServiceImpl implements
-    com.opensource.vaxlocator.service.VaccinationPointsService {
+public class VaccinationPointsServiceImpl implements VaccinationPointsService {
 
   private final AddressService addressService;
   private final EstablishmentService establishmentService;
@@ -27,8 +26,8 @@ public class VaccinationPointsServiceImpl implements
   @Override
   public EstablishmentsInfoDomainDto retrieveVaccinationPointsDetails(final String postalCode) {
     CoordinateDomainDto coordinateDto = retrieveCurrentCoordinate(postalCode);
-    double currentLatitude = coordinateDto.latitude();
-    double currentLongitude = coordinateDto.longitude();
+    Double currentLatitude = coordinateDto.latitude();
+    Double currentLongitude = coordinateDto.longitude();
     double radius = 10;
 
     List<EstablishmentDomainDto> establishmentsInRadius = establishmentService.retrieveEstablishments()
@@ -46,12 +45,22 @@ public class VaccinationPointsServiceImpl implements
     return coordinateMapper.mapToDto(addressDto);
   }
 
-  private boolean isWithinRadius(double currentLatitude, double currentLongitude, double latitude,
-      double longitude, double radius) {
+  private boolean isWithinRadius(
+      Double currentLatitude,
+      Double currentLongitude,
+      Double latitude,
+      Double longitude,
+      Double radius
+  ) {
+    if (latitude == null || longitude == null) {
+      return false;
+    }
+
     return calculateDistance(currentLatitude, currentLongitude, latitude, longitude) <= radius;
   }
 
-  private double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+
+  private Double calculateDistance(Double lat1, Double lon1, Double lat2, Double lon2) {
     double earthRadius = 6371;
     double dLat = Math.toRadians(lat2 - lat1);
     double dLon = Math.toRadians(lon2 - lon1);

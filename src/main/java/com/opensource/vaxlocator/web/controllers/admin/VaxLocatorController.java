@@ -27,7 +27,7 @@ public class VaxLocatorController {
       description = "retrieves information from vaccination establishments"
   )
   public ResponseEntity<EstablishmentsInfoDomainDto> findAddressInformation(
-      @Parameter(description = "Postal code for vaccination points lookup", required = true)
+      @Parameter(description = "Postal code for vaccination points lookup (format: 00000-000)", required = true)
       @RequestParam final String postalCode
   ) {
     return ResponseEntity.status(HttpStatus.OK)

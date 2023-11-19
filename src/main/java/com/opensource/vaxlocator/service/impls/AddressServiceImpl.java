@@ -29,7 +29,9 @@ public class AddressServiceImpl implements AddressService {
       return addressMapper.mapToDto(existingAddress.get());
     } else {
       log.info("Address not found in the database. Retrieving from API and saving to database.");
-      final var addressInformation = openCageDataService.getAddressInformation("", postalCode);
+      final var addressInformation = openCageDataService.getAddressInformation(
+          "", postalCode
+      );
       final var newAddressDto = addressMapper.mapToDto(addressInformation);
       return save(newAddressDto);
     }
