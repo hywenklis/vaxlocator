@@ -104,6 +104,6 @@ Controlador responsável por endpoints relacionados aos pontos de vacinação.
 - Lombok
 - Swagger - OpenAPI Springdoc
 
-## Documentação
+## Diagrama de Contexto - C4 Model
 
 ![Documentação](https://github.com/hywenklis/vaxlocator/blob/main/diagrama.png) 
