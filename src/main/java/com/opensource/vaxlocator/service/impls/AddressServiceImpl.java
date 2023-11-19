@@ -4,7 +4,7 @@ import com.opensource.vaxlocator.domains.dtos.AddressDomainDto;
 import com.opensource.vaxlocator.domains.entities.AddressEntity;
 import com.opensource.vaxlocator.domains.mappers.AddressMapper;
 import com.opensource.vaxlocator.domains.repositories.AddressRepository;
-import com.opensource.vaxlocator.integrations.opencagedata.service.OpenCageDataService;
+import com.opensource.vaxlocator.integrations.service.OpenCageDataService;
 import com.opensource.vaxlocator.service.AddressService;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;

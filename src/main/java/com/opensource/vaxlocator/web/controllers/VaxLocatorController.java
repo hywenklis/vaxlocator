@@ -1,4 +1,4 @@
-package com.opensource.vaxlocator.web.controllers.admin;
+package com.opensource.vaxlocator.web.controllers;
 
 import com.opensource.vaxlocator.domains.dtos.EstablishmentsInfoDomainDto;
 import com.opensource.vaxlocator.service.VaccinationPointsService;
@@ -26,7 +26,7 @@ public class VaxLocatorController {
       summary = "Find vaccination points",
       description = "retrieves information from vaccination establishments"
   )
-  public ResponseEntity<EstablishmentsInfoDomainDto> findAddressInformation(
+  public ResponseEntity<EstablishmentsInfoDomainDto> findAll(
       @Parameter(description = "Postal code for vaccination points lookup (format: 00000-000)", required = true)
       @RequestParam final String postalCode
   ) {

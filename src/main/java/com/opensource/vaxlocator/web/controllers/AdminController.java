@@ -1,11 +1,11 @@
-package com.opensource.vaxlocator.web.controllers.admin;
+package com.opensource.vaxlocator.web.controllers;
 
 import com.opensource.vaxlocator.domains.dtos.AddressDomainDto;
 import com.opensource.vaxlocator.domains.dtos.EstablishmentDomainDto;
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.demas.EstablishmentsInfoDto;
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.OpenCageDataDto;
-import com.opensource.vaxlocator.integrations.opencagedata.service.DemasService;
-import com.opensource.vaxlocator.integrations.opencagedata.service.OpenCageDataService;
+import com.opensource.vaxlocator.integrations.dtos.demas.EstablishmentsInfoDto;
+import com.opensource.vaxlocator.integrations.dtos.opencagedata.OpenCageDataDto;
+import com.opensource.vaxlocator.integrations.service.DemasService;
+import com.opensource.vaxlocator.integrations.service.OpenCageDataService;
 import com.opensource.vaxlocator.service.AddressService;
 import com.opensource.vaxlocator.service.EstablishmentService;
 import io.swagger.v3.oas.annotations.Operation;

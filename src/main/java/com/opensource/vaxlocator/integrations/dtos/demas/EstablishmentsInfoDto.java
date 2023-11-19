@@ -1,4 +1,4 @@
-package com.opensource.vaxlocator.integrations.opencagedata.dtos.demas;
+package com.opensource.vaxlocator.integrations.dtos.demas;
 
 import java.util.List;
 

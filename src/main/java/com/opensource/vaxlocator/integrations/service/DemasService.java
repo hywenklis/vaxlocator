@@ -1,9 +1,9 @@
-package com.opensource.vaxlocator.integrations.opencagedata.service;
+package com.opensource.vaxlocator.integrations.service;
 
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.demas.EstablishmentsInfoDto;
-import com.opensource.vaxlocator.integrations.opencagedata.mappers.DemasMapper;
-import com.opensource.vaxlocator.integrations.opencagedata.response.demas.EstablishmentsInfoResponse;
-import com.opensource.vaxlocator.integrations.opencagedata.web.DemasClient;
+import com.opensource.vaxlocator.integrations.mappers.DemasMapper;
+import com.opensource.vaxlocator.integrations.dtos.demas.EstablishmentsInfoDto;
+import com.opensource.vaxlocator.integrations.response.demas.EstablishmentsInfoResponse;
+import com.opensource.vaxlocator.integrations.web.DemasClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -34,7 +34,7 @@ public class DemasService {
 
     EstablishmentsInfoDto result = demasMapper.mapToDto(establishments);
 
-    log.info("Establishments information retrieved successfuly: {}", result);
+    log.info("Establishments information retrieved successfully");
     return result;
   }
 }

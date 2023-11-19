@@ -1,4 +1,4 @@
-package com.opensource.vaxlocator.integrations.opencagedata.dtos.demas;
+package com.opensource.vaxlocator.integrations.dtos.demas;
 
 public record EstablishmentDto(Integer establishmentCode,
                                String cnpj,

@@ -1,4 +1,4 @@
-package com.opensource.vaxlocator.integrations.opencagedata.response.opencagedata;
+package com.opensource.vaxlocator.integrations.response.opencagedata;
 
 public record ComponentsResponse(String city,
                                  String municipality,

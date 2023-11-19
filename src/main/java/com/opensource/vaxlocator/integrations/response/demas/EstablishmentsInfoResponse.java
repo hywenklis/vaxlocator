@@ -1,4 +1,4 @@
-package com.opensource.vaxlocator.integrations.opencagedata.response.demas;
+package com.opensource.vaxlocator.integrations.response.demas;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;

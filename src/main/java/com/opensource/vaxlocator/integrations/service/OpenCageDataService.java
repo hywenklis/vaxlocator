@@ -1,9 +1,9 @@
-package com.opensource.vaxlocator.integrations.opencagedata.service;
+package com.opensource.vaxlocator.integrations.service;
 
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.OpenCageDataDto;
-import com.opensource.vaxlocator.integrations.opencagedata.mappers.OpenCageDataMapper;
-import com.opensource.vaxlocator.integrations.opencagedata.response.opencagedata.OpenCageDataResponse;
-import com.opensource.vaxlocator.integrations.opencagedata.web.OpenCageDataClient;
+import com.opensource.vaxlocator.integrations.dtos.opencagedata.OpenCageDataDto;
+import com.opensource.vaxlocator.integrations.mappers.OpenCageDataMapper;
+import com.opensource.vaxlocator.integrations.response.opencagedata.OpenCageDataResponse;
+import com.opensource.vaxlocator.integrations.web.OpenCageDataClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

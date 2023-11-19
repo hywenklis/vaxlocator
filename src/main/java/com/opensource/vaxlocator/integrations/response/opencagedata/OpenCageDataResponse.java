@@ -1,4 +1,4 @@
-package com.opensource.vaxlocator.integrations.opencagedata.response.opencagedata;
+package com.opensource.vaxlocator.integrations.response.opencagedata;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package com.opensource.vaxlocator.domains.mappers;
 
 import com.opensource.vaxlocator.domains.dtos.AddressDomainDto;
 import com.opensource.vaxlocator.domains.entities.AddressEntity;
-import com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata.OpenCageDataDto;
+import com.opensource.vaxlocator.integrations.dtos.opencagedata.OpenCageDataDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

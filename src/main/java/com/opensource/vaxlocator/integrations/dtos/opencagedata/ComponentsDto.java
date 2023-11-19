@@ -1,4 +1,4 @@
-package com.opensource.vaxlocator.integrations.opencagedata.dtos.opencagedata;
+package com.opensource.vaxlocator.integrations.dtos.opencagedata;
 
 public record ComponentsDto(String city,
                             String municipality,

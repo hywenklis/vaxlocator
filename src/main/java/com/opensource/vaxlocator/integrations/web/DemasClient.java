@@ -1,6 +1,6 @@
-package com.opensource.vaxlocator.integrations.opencagedata.web;
+package com.opensource.vaxlocator.integrations.web;
 
-import com.opensource.vaxlocator.integrations.opencagedata.response.demas.EstablishmentsInfoResponse;
+import com.opensource.vaxlocator.integrations.response.demas.EstablishmentsInfoResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
