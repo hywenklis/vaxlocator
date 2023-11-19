@@ -103,3 +103,7 @@ Controlador responsável por endpoints relacionados aos pontos de vacinação.
 - Docker Compose
 - Lombok
 - Swagger - OpenAPI Springdoc
+
+## Documentação
+
+![Documentação](https://github.com/hywenklis/vaxlocator/blob/main/diagrama.png) 
