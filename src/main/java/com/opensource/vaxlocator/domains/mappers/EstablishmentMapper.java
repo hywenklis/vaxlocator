@@ -5,10 +5,10 @@ import com.opensource.vaxlocator.domains.dtos.EstablishmentsInfoDomainDto;
 import com.opensource.vaxlocator.domains.entities.EstablishmentEntity;
 import com.opensource.vaxlocator.integrations.opencagedata.dtos.demas.EstablishmentDto;
 import com.opensource.vaxlocator.integrations.opencagedata.dtos.demas.EstablishmentsInfoDto;
+import java.util.List;
+import java.util.Optional;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
-import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface EstablishmentMapper {
