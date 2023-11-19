@@ -25,14 +25,26 @@ public class AddressServiceImpl implements AddressService {
     final Optional<AddressEntity> existingAddress = addressRepository.findByPostalCode(postalCode);
 
     if (existingAddress.isPresent()) {
-      log.info("Address found in the database. Retrieving from database.");
-      return addressMapper.mapToDto(existingAddress.get());
-    } else {
-      log.info("Address not found in the database. Retrieving from API and saving to database.");
-      final var addressInformation = openCageDataService.getAddressInformation(
-          "", postalCode
+      log.info("Address found in the database. Retrieving from database. postalCode={}",
+          postalCode
       );
+
+      return addressMapper.mapToDto(existingAddress.get());
+
+    } else {
+      log.info(
+          "Address not found in the database. "
+              + "Retrieving from API and saving to database. postalCode={}",
+          postalCode
+      );
+
+      final var addressInformation = openCageDataService.getAddressInformation(
+          "",
+          postalCode
+      );
+
       final var newAddressDto = addressMapper.mapToDto(addressInformation);
+
       return save(newAddressDto);
     }
   }
@@ -40,6 +52,8 @@ public class AddressServiceImpl implements AddressService {
   private AddressDomainDto save(final AddressDomainDto addressDto) {
     final AddressEntity addressEntity = addressMapper.mapToEntity(addressDto);
     final AddressEntity savedAddress = addressRepository.save(addressEntity);
+
+    log.info("New address saved in the database. addressDto={}", addressDto);
     return addressMapper.mapToDto(savedAddress);
   }
 }
