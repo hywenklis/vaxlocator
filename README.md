@@ -1,6 +1,7 @@
 # Documentação da Aplicação VaxLocator
 
 ## Visão Geral
+Aplicação para obtenção de nota no projeto integrador CESMAC.
 
 A aplicação fornece informações sobre pontos de vacinação com base em códigos postais. A estrutura da aplicação é organizada em vários pacotes, cada um responsável por diferentes aspectos da funcionalidade.
 
