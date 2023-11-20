@@ -22,7 +22,7 @@ public class CoordinateServiceImpl implements CoordinateService {
   }
 
   @Override
-  public Boolean isValid(Double latitude, Double longitude) {
+  public Boolean isValid(final Double latitude, final Double longitude) {
     return latitude != null && longitude != null;
   }
 }

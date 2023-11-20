@@ -7,7 +7,12 @@ import org.springframework.stereotype.Service;
 public class DistanceCalculatorServiceImpl implements DistanceCalculatorService {
 
   @Override
-  public Double calculateDistance(Double lat1, Double lon1, Double lat2, Double lon2) {
+  public Double calculateDistance(
+      final Double lat1,
+      final Double lon1,
+      final Double lat2,
+      final Double lon2
+  ) {
     double earthRadius = 6371;
     double dLat = Math.toRadians(lat2 - lat1);
     double dLon = Math.toRadians(lon2 - lon1);

@@ -43,11 +43,11 @@ public class VaccinationPointsServiceImpl implements VaccinationPointsService {
   }
 
   private boolean isWithinRadius(
-      Double currentLatitude,
-      Double currentLongitude,
-      Double latitude,
-      Double longitude,
-      Double radius
+      final Double currentLatitude,
+      final Double currentLongitude,
+      final Double latitude,
+      final Double longitude,
+      final Double radius
   ) {
     if (Boolean.FALSE.equals(coordinateService.isValid(latitude, longitude))) {
       return false;
