@@ -5,24 +5,6 @@ Aplicação para obtenção de nota no projeto integrador CESMAC.
 
 A aplicação fornece informações sobre pontos de vacinação com base em códigos postais. A estrutura da aplicação é organizada em vários pacotes, cada um responsável por diferentes aspectos da funcionalidade.
 
-## Estrutura de Pacotes
-
-### 1. Pacote `domains`
-
-Contém pacotes como `dtos`, `entities`, `mappers`, `repositories` para organizar classes relacionadas ao domínio.
-
-### 2. Pacote `integrations`
-
-Contém pacotes como `dtos`, `mappers`, `response`, `service`, `web` para integração com as APIs Demas e OpenCageData.
-
-### 3. Pacote `service`
-
-Contém implementações de interfaces como `AddressService`, `EstablishmentService`, e `VaccinationPointsService`.
-
-### 4. Pacote `web`
-
-Contém pacotes `controllers`. Dentro do pacote `admin`, temos `AdminController`, e fora do pacote `admin`, temos `VaxLocatorController`.
-
 ## Componentes Principais
 
 ### 1. `AdminController`
