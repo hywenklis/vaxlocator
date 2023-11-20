@@ -49,7 +49,7 @@ public class VaccinationPointsServiceImpl implements VaccinationPointsService {
       Double longitude,
       Double radius
   ) {
-    if (!coordinateService.isValid(latitude, longitude)) {
+    if (Boolean.FALSE.equals(coordinateService.isValid(latitude, longitude))) {
       return false;
     }
 
